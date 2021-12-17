@@ -38,16 +38,16 @@ document.addEventListener('DOMContentLoaded', () => {
 const move = (arr) => {
   const square = document.querySelector('.square');
   square.style.position = 'absolute';
-  if (arr === 'ArrowRight') {
+  if (arr === 'ArrowRight' && window.innerWidth - 100 - axisX > 10) {
     axisX += 10;
     square.style.left = `${axisX}px`;
-  } else if (arr === 'ArrowLeft') {
+  } else if (arr === 'ArrowLeft' && axisX > 0) {
     axisX -= 10;
     square.style.left = `${axisX}px`;
-  } else if (arr === 'ArrowUp') {
+  } else if (arr === 'ArrowUp' && axisY > 0) {
     axisY -= 10;
     square.style.top = `${axisY}px`;
-  } else if (arr === 'ArrowDown') {
+  } else if (arr === 'ArrowDown' && window.innerHeight - 100 - axisY > 10) {
     axisY += 10;
     square.style.top = `${axisY}px`;
   }
