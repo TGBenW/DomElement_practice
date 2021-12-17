@@ -16,7 +16,6 @@ const DomElement = function (selector, height, width, bg, fontSize) {
       div.textContent = 'Text in div with a class!';
       document.body.append(div);
     } else if (this.selector[0] === '#') {
-      console.log('here is a #!');
       const p = document.createElement('p');
 
       p.id = this.selector.slice(1);
