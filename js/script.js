@@ -1,5 +1,8 @@
 'use strict';
 
+let axisX = 0;
+let axisY = 0;
+
 const DomElement = function (selector, height, width, bg, fontSize) {
   this.selector = selector;
   this.height = height;
@@ -26,10 +29,30 @@ const DomElement = function (selector, height, width, bg, fontSize) {
   };
 };
 
-const newElement = new DomElement('.block', '120px', '160px', 'red', '24px');
-const newElement2 = new DomElement('#best', '240px', '100px', 'green', '16px');
+let squareElement = new DomElement('.square', '100px', '100px', '#F7CAC9', '16px');
 
 document.addEventListener('DOMContentLoaded', () => {
-  newElement.createElement();
-  newElement2.createElement();
+  squareElement.createElement();
+});
+
+const move = (arr) => {
+  const square = document.querySelector('.square');
+  square.style.position = 'absolute';
+  if (arr === 'ArrowRight') {
+    axisX += 10;
+    square.style.left = `${axisX}px`;
+  } else if (arr === 'ArrowLeft') {
+    axisX -= 10;
+    square.style.left = `${axisX}px`;
+  } else if (arr === 'ArrowUp') {
+    axisY -= 10;
+    square.style.top = `${axisY}px`;
+  } else if (arr === 'ArrowDown') {
+    axisY += 10;
+    square.style.top = `${axisY}px`;
+  }
+};
+
+document.addEventListener('keydown', (event) => {
+  move(event.key);
 });
